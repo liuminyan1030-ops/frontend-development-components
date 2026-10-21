@@ -1,3 +1,14 @@
+/*
+  File: app/layout.tsx
+  Author: Minyan Liu
+  Date: October 21, 2026
+
+  This file is the App Router layout. Next.js wraps every page with it.
+  Inputs: children, which is the page content.
+  Processing: it imports global Tailwind styles, then draws Navbar, children,
+  and Footer. The page itself is only StudentPortal.
+  Output: the HTML shell for the one-page portal.
+*/
 import type { Metadata } from "next";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -7,7 +18,7 @@ export const metadata: Metadata = {
   title:"New Generation High School Portal",
   description:"Student portal for New Generation High School",
 }
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const RootLayout=({ children }: { children: React.ReactNode })=> {
   return (
     <html
       lang="en"
@@ -21,3 +32,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
+export default RootLayout;
