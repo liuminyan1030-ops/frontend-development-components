@@ -32,7 +32,7 @@ const StudentList = ({ students, onRemove }: StudentListProps) => {
 
   // ---- Grid of cards ----
   return (
-    <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div id="students" className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {students.map((student) => (
         <StudentCard key={student.id} student={student} onRemove={onRemove} />
       ))}
