@@ -8,6 +8,24 @@ import StatsPanel from "./StatsPanel";
 import SearchBox from "./SearchBox";
 import AddStudent from "./AddStudent";
 
+/*
+  File: components/StudentPortal.tsx
+  Author:Iris Dunbar
+  Date: October 22, 2026
+
+  Main component of application. 
+  Brings together all other components and manages state for most of the application.
+  Handles all state changes and passes down necessary props to child components.
+  Styles page to combine all components into one cohesive portal.
+
+  Inputs: Technically none, but uses student.ts data file to get initial students.
+  Processing: 
+  Output: Three separate sections which can be reached through Navbar buttons, and one clear all button.
+          Each section contains the necessary components for functionality and display.
+          First section contains StatsPanel.
+          Second section contains SearchBox and StudentList.
+          Third section contains AddStudent.
+*/
 export default function StudentPortal() {
   const [students, setStudents] = useState<Student[]>(initialStudents)
   const [query, setQuery] = useState("");

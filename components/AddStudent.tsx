@@ -2,6 +2,18 @@
 
 import { useState } from "react";
 
+/*
+  File: components/AddStudent.tsx
+  Author: Iris Dunbar
+  Date: October 22, 2026
+
+  Creates four input fields and button for add student form.
+  Creates and holds base handler logic for add student form.
+  
+  Inputs: Student first and last name, grade, and average input states passed as a prop.
+  Processing: Doesn't hold state, parent passes state to it.
+  Output: Four input fields for student, and one button to save data.
+*/
 interface AddStudentProps {
     onAdd: (
       firstName: string, 

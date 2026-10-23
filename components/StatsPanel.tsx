@@ -7,7 +7,8 @@
   Inputs: studentCount, honourRollCount and gradeTwelveCount as props.
   Processing: it does not keep its own state. Parent already counted the list.
   Output: three cards for Students, Honour roll and Graduating.
-*/interface StatsPanelProps {
+*/
+interface StatsPanelProps {
     studentCount: number;
     honourRollCount: number;
     gradeTwelveCount: number;

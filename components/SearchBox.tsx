@@ -1,3 +1,15 @@
+/*
+  File: components/SearchBox.tsx
+  Author: Iris Dunbar
+  Date: October 22, 2026
+
+  Creates search box input field and wrapper for search box.
+  Creates and holds base handler logic for search box.
+
+  Inputs: Search term, and search state passed as a prop.
+  Processing: Doesn't hold state, parent passes state to it.
+  Output: Input field and wrapper for search box.
+*/
 interface StudentCardProps {
   query: string;
   onQuery: (event: React.ChangeEvent<HTMLInputElement>) => void;
