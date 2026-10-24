@@ -1,19 +1,19 @@
-"use client"
-
-import { useState } from "react";
+"use client";
 
 /*
   File: components/AddStudent.tsx
   Author: Iris Dunbar
   Date: October 22, 2026
 
-  Creates four input fields and button for add student form.
-  Creates and holds base handler logic for add student form.
-  
-  Inputs: Student first and last name, grade, and average input states passed as a prop.
-  Processing: Doesn't hold state, parent passes state to it.
-  Output: Four input fields for student, and one button to save data.
+  This component lets a user type a new student and add that student.
+  Inputs: onAdd from StudentPortal. The four fields are local state, not props.
+  Processing: grade starts at 9 and average starts at 70. Add is a button click,
+  not a form submit. Empty names do nothing. After a successful add the fields reset.
+  Output: four controlled inputs and an Add student button.
 */
+
+import { useState } from "react";
+
 interface AddStudentProps {
     onAdd: (
       firstName: string, 
@@ -23,11 +23,12 @@ interface AddStudentProps {
     ) => void;
   }
 
-export default function AddStudent({ onAdd }: AddStudentProps) {
+const AddStudent = ({ onAdd }: AddStudentProps)=> {
+  // These four fields stay in this child. The parent only receives the finished student.
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [grade, setGrade] = useState("9")
-  const [average, setAverage] = useState("70")
+  const [grade, setGrade] = useState(9);
+  const [average, setAverage] = useState(70);
 
   const handleFirstNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFirstName(event.target.value);
@@ -40,68 +41,74 @@ export default function AddStudent({ onAdd }: AddStudentProps) {
   const handleGradeChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setGrade(event.target.value);
+    setGrade(Number(event.target.value));
   };
 
   const handleAverageChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setAverage(event.target.value);
+    setAverage(Number(event.target.value));
   };
 
+  // Add is a button click, not a form submit. Empty names do nothing.
   const handleClick = () => {
-    if (firstName === "" || lastName === "") {
+    if (firstName.trim() === "" || lastName.trim() === "") {
       return;
     }
-    onAdd(firstName, lastName, Number(grade), Number(average));
+    onAdd(firstName.trim(), lastName.trim(), Number(grade), Number(average));
     setFirstName("");
     setLastName("");
-    setGrade("9");
-    setAverage("70");
+    setGrade(9);
+    setAverage(70);
   };
 
   return (
-    <div>
-      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="mt-4 flex flex-col lg:flex-row lg:items-center gap-3">
+      <input
+        type="text"
+        value={firstName}
+        onChange={handleFirstNameChange}
+        placeholder="Student first name"
+        className="w-full lg:flex-1 rounded-lg border-2 border-slate-400 px-4 py-2
+        text-slate-800 focus:border-emerald-700 focus:outline-none"
+      />
+      <input
+        type="text"
+        value={lastName}
+        onChange={handleLastNameChange}
+        placeholder="Student last name"
+        className="w-full lg:flex-1 rounded-lg border-2 border-slate-400 px-4 py-2
+        text-slate-800 focus:border-emerald-700 focus:outline-none"
+      />
+      <div className="flex items-center gap-2 shrink-0">
+        <p className="text-sm font-semibold text-slate-600">Grade</p>
         <input
-          type="text"
-          value={firstName}
-          onChange={handleFirstNameChange}
-          placeholder="Student first name"
-          className="flex-1 rounded-lg border border-slate-300 px-4 py-2
+          type="number"
+          value={grade}
+          onChange={handleGradeChange}
+          className="w-20 rounded-lg border-2 border-slate-400 px-3 py-2
           text-slate-800 focus:border-emerald-700 focus:outline-none"
         />
+      </div>
+      <div className="flex items-center gap-2 shrink-0">
+        <p className="text-sm font-semibold text-slate-600">Average</p>
         <input
-          type="text"
-          value={lastName}
-          onChange={handleLastNameChange}
-          placeholder="Student last name"
-          className="flex-1 rounded-lg border border-slate-300 px-4 py-2
+          type="number"
+          value={average}
+          onChange={handleAverageChange}
+          className="w-20 rounded-lg border-2 border-slate-400 px-3 py-2
           text-slate-800 focus:border-emerald-700 focus:outline-none"
         />
-        <div className="flex justify-between">
-          <input
-            type="number"
-            value={grade}
-            onChange={handleGradeChange}
-            className="w-26 rounded-lg border border-slate-300 px-4 py-2
-            text-slate-800 focus:border-emerald-700 focus:outline-none"
-          />
-          <input
-            type="number"
-            value={average}
-            onChange={handleAverageChange}
-            className="w-26 rounded-lg border border-slate-300 px-4 py-2
-            text-slate-800 focus:border-emerald-700 focus:outline-none"
-          />
-        </div>
       </div>
       <button
+        type="button"
         onClick={handleClick}
-        className="mx-60 mt-4 w-55 h-10.5 rounded-lg bg-emerald-800 px-4 py-2 font-semibold text-white hover:bg-emerald-700"
+        className="w-full lg:w-auto lg:ml-auto rounded-lg bg-emerald-800 px-4 py-2 font-semibold text-white hover:bg-emerald-700 cursor-pointer shadow-sm"
       >
         Add student
       </button>
     </div>
   );
 }
+
+export default AddStudent;

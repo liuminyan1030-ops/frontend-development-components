@@ -24,7 +24,7 @@ const StudentList = ({ students, onRemove }: StudentListProps) => {
   // ---- Empty case ----
   if (students.length === 0) {
     return (
-      <p className="mt-4 rounded-xl bg-white p-4 text-center text-slate-600 shadow">
+      <p className="mt-4 rounded-xl bg-white border-2 border-slate-400 p-4 text-center text-red-600 shadow-md">
         No students to show.
       </p>
     );
@@ -32,7 +32,7 @@ const StudentList = ({ students, onRemove }: StudentListProps) => {
 
   // ---- Grid of cards ----
   return (
-    <div id="students" className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div  className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 text-xl text-center">
       {students.map((student) => (
         <StudentCard key={student.id} student={student} onRemove={onRemove} />
       ))}

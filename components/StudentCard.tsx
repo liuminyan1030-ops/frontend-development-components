@@ -29,23 +29,23 @@ const StudentCard = ({ student, onRemove }: StudentCardProps) => {
   const isHonourRoll = student.average >= 80;
 
   return (
-    <div className="rounded-xl bg-white shadow p-4 flex flex-col gap-3">
+    <div className="rounded-xl bg-white border-2 border-slate-400 shadow-md p-4 flex flex-col gap-3">
       {/* ---- Name and grade ---- */}
       <div>
         <h3 className="text-lg font-bold text-slate-800 wrap-break-word">
           {student.firstName} {student.lastName}
         </h3>
-        <p className="text-sm text-slate-600">Grade {student.grade}</p>
+        <p className="text-lg text-slate-600">Grade {student.grade}</p>
       </div>
 
       {/* ---- Details (only when opened) ---- */}
       {showDetails && (
-        <div className="flex flex-wrap items-center gap-2 rounded-lg bg-slate-50 p-3">
-          <p className="text-sm text-slate-800">
-            Average: <span className="font-bold">{student.average}</span>
+        <div className="flex flex-wrap items-center justify-center gap-2 rounded-lg bg-slate-200 p-3">
+          <p className="text-sm font-semibold text-slate-800">
+            Average: <span className="font-bold px-2 text-red-800">{student.average}</span>
           </p>
           {isHonourRoll && (
-            <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-800">
+            <span className="rounded-full font-bold bg-emerald-100 px-2 py-0.5 text-sm font-semibold text-emerald-800">
               Honour roll
             </span>
           )}
@@ -53,18 +53,18 @@ const StudentCard = ({ student, onRemove }: StudentCardProps) => {
       )}
 
       {/* ---- Buttons ---- */}
-      <div className="flex flex-wrap gap-2 mt-auto">
+      <div className="flex flex-wrap gap-2 mt-auto px-8 items-center justify-between">
         <button
           type="button"
           onClick={() => setShowDetails(!showDetails)}
-          className="rounded-lg bg-emerald-800 px-3 py-1.5 text-sm font-semibold text-white hover:bg-emerald-700"
+          className="rounded-lg bg-emerald-800 px-3 py-1.5 text-sm font-semibold text-white hover:bg-emerald-700 cursor-pointer shadow-sm"
         >
           {showDetails ? "Hide details" : "Show details"}
         </button>
         <button
           type="button"
           onClick={() => onRemove(student.id)}
-          className="rounded-lg border border-red-600 px-3 py-1.5 text-sm font-semibold text-red-600 hover:bg-red-50"
+          className="rounded-lg border border-red-600 px-3 py-1.5 text-sm font-semibold text-red-600 hover:bg-red-50 cursor-pointer shadow-sm"
         >
           Remove
         </button>

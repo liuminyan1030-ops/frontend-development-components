@@ -8,6 +8,7 @@
   Processing: it does not keep its own state. Parent already counted the list.
   Output: three cards for Students, Honour roll and Graduating.
 */
+
 interface StatsPanelProps {
     studentCount: number;
     honourRollCount: number;
@@ -16,18 +17,18 @@ interface StatsPanelProps {
 
 const StatsPanel = ({ studentCount, honourRollCount, gradeTwelveCount }: StatsPanelProps) => {
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
-            <div className=" rounded-xl bg-white shadow p-4 ">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">            
+            <div className="rounded-xl bg-white border-2 border-slate-400 shadow-md p-4 text-center">
                 <h2 className="text-lg font-bold text-slate-800 mb-4">Students</h2>
-                <p className="text-3xl font-bold text-slate-800">{studentCount}</p>
+                <p className="text-3xl font-bold text-red-800">{studentCount}</p>
             </div>   
-            <div className=" rounded-xl bg-white shadow p-4">
+            <div className="rounded-xl bg-white border-2 border-slate-400 shadow-md p-4 text-center">
                 <h2 className="text-lg font-bold text-slate-800 mb-4">Honour Roll</h2>
-                <p className="text-3xl font-bold text-slate-800">{honourRollCount}</p>
+                <p className="text-3xl font-bold text-blue-800">{honourRollCount}</p>
             </div>
-            <div className=" rounded-xl bg-white shadow p-4">
+            <div className="rounded-xl bg-white border-2 border-slate-400 shadow-md p-4 text-center">
                 <h2 className="text-lg font-bold text-slate-800 mb-4">Graduating</h2>
-                <p className="text-3xl font-bold text-slate-800">{gradeTwelveCount}</p>
+                <p className="text-3xl font-bold text-green-800">{gradeTwelveCount}</p>
             </div>
         </div>  
     )
