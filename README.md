@@ -6,7 +6,7 @@ Group members and what each person built:
 - **Nguyen Hoang Yen (Member B)** — `data/students.ts`, StudentList, StudentCard
 - **Iris Dunbar (Member C)** — StudentPortal, SearchBox, AddStudent
 
-Live site: 
+Live site: https://frontend-development-components.vercel.app/
 GitHub repo: https://github.com/liuminyan1030-ops/frontend-development-components
 
 ## How to run locally
