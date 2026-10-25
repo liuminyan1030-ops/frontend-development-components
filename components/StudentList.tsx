@@ -4,13 +4,11 @@
   Date: October 22, 2026
 
   This component draws the grid of student cards.
-  Inputs: students (the students to show) and onRemove (a callback that
-  takes a student id and is passed down to each card).
-  Processing: it has no state. If the array is empty it shows a message;
-  otherwise it maps each student to one StudentCard, using the id as key.
-  Output: a responsive grid (1 column on phones, more on wider screens)
-  or the "No students to show." message.
+  Inputs: students (the students to show) and onRemove (a callback that takes a student id and is passed down to each card).
+  Processing: it has no state, and it shows a message if the array is empty, otherwise it maps each student to one StudentCard with the id as key.
+  Output: a responsive grid (1 column on phones, more on wider screens) or the "No students to show." message.
 */
+
 import { Student } from "@/data/students";
 import StudentCard from "@/components/StudentCard";
 
