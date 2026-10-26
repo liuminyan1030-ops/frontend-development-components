@@ -15,9 +15,9 @@ const Navbar = () => {
     <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-3 md:flex-row items-center justify-between">
       <h1 className="text-xl font-bold">New Generation High School</h1>
       <nav className="flex flex-wrap gap-3 text-lg font-semibold">       
-          <a href="#overview" className="hover:underline  cursor-pointer">Overview</a>
-          <a href="#students" className="hover:underline cursor-pointer">Students</a>
-          <a href="#add-a-student" className="hover:underline  cursor-pointer">Add a Student</a>      
+          <a href="#overview" className=" hover:underline   hover:text-yellow-300 cursor-pointer">Overview</a>
+          <a href="#students" className="hover:underline   hover:text-yellow-300 cursor-pointer">Students</a>
+          <a href="#add-a-student" className="hover:underline  hover:text-yellow-300 cursor-pointer">Add a Student</a>      
       </nav>
     </div>
   </header>;

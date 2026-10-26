@@ -9,7 +9,7 @@
   Output: a footer that layout.tsx places below the portal.
 */
 const Footer = () => {
-  return <footer className="bg-emerald-800 text-white">
+  return <footer className= "mt-auto bg-emerald-800 text-white">
     <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-3 md:flex-row items-center justify-between">
       <p className="text-sm font-semibold">&copy;New Generation High School</p>
       <p className="text-sm font-semibold">Address: 123 Main Street, Calgary, AB, E2N 5T6</p>
