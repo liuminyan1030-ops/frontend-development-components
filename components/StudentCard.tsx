@@ -6,12 +6,11 @@
 
   This component draws one student as a card.
   Inputs: student (a Student) and onRemove (a callback that takes the id).
-  Processing: it keeps one piece of state, showDetails, so each card opens
-  and closes on its own. The Honour roll badge is worked out from the
-  average on every render, so it is not state.
-  Output: a card with the full name, the grade, a Show/Hide details button
-  and a Remove button. Remove only asks the parent to remove the student.
+  Processing: it keeps one piece of state, showDetails, so each card opens and closes on its own, and the Honour roll badge is worked out from the average on every render.
+  Output: a card with the full name, the grade, a Show/Hide details button and a Remove button.
+  Remove only asks the parent to remove the student.
 */
+
 import { useState } from "react";
 import { Student } from "@/data/students";
 
@@ -45,7 +44,7 @@ const StudentCard = ({ student, onRemove }: StudentCardProps) => {
             Average: <span className="font-bold px-2 text-red-800">{student.average}</span>
           </p>
           {isHonourRoll && (
-            <span className="rounded-full font-bold bg-emerald-100 px-2 py-0.5 text-sm font-semibold text-emerald-800">
+            <span className="rounded-full font-bold bg-emerald-100 px-2 py-0.5 text-sm text-emerald-800">
               Honour roll
             </span>
           )}
